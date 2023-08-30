@@ -1,30 +1,52 @@
 import React from 'react';
-import { View, Text, StyleSheet, Button } from 'react-native';
-import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { RootStackParamList } from '../App';
+import { View, Image, StyleSheet } from 'react-native';
+import { Button, Text } from 'react-native-paper';
 
 type HomeProps = NativeStackScreenProps<RootStackParamList, 'Home'>;
 
-const Home = ({ navigation }: HomeProps) => {
+const Home = ({navigation}: HomeProps) => {
   return (
     <View style={styles.container}>
-      <Button
-        title="Click me"
-        onPress={() => navigation.navigate('Dashboard')}
-      />
+      <Image source={require('../src/logo.png')} style={styles.logo} />
+      <Text style={styles.title}>Smart Waste{'\n'}Management  System</Text>
+      <Text style={styles.content}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin a magna in odio fringilla faucibus quis a ipsum. Vivamus vulputate elit lorem, quis ultricies velit iaculis nec. </Text>
+      <Button style={styles.button} mode="contained"  onPress={() => navigation.navigate('Dashboard')}>
+        Get Started
+      </Button>
     </View>
   );
-};
+}
 
-export default Home;
 
 const styles = StyleSheet.create({
+  button: {
+    backgroundColor: '#0EA976',
+  },
   container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'white'
+    backgroundColor: 'white',
   },
-  // You can add more styles here as needed
+  title: {
+    maxWidth: 300,
+    paddingTop: 20,
+    paddingBottom: 10,
+    fontSize: 24,
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
+  content: {
+    padding: 30,
+    fontSize: 16,
+    textAlign: 'center',
+    margin: 'auto',
+    marginBottom: 30,
+  },
+  logo: {
+    height: 80,
+    resizeMode: 'contain',
+  },
 });
- 
+
+export default Home
