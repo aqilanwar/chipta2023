@@ -1,8 +1,9 @@
-import { View, StyleSheet, Text, SafeAreaView, ScrollView } from 'react-native'
+import { View, StyleSheet, Text, SafeAreaView, ScrollView, Image } from 'react-native'
 import React from 'react'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import { DataTable, Button } from 'react-native-paper'
 
+import MapView, { Marker } from 'react-native-maps';
 
 type ViewRouteProps = NativeStackScreenProps<RootStackParamList, 'View Route'>;
 
@@ -16,14 +17,16 @@ const ViewRoute = ({ route }: ViewRouteProps) => {
                 <View style={styles.statisticContainer}>
                     <Text variant='titleLarge' style={styles.textTitle}>Route</Text>
                     <Text variant='titleLarge' style={styles.lastUpdated}>Best Route for {item.route.truckName}</Text>
-
+                    <Image source={require('../src/maps.png')} style={styles.logo} />
                 </View>
+                <Text variant='titleLarge' style={styles.textTitle}>Route Detail</Text>
 
                 <DataTable style={{ padding: 10 }}>
                     <DataTable.Header style={{ backgroundColor: '#F5F5F5' }}>
                         <DataTable.Title><Text style={{ fontWeight: 'bold' }}>Address</Text></DataTable.Title>
                         <DataTable.Title style={{ justifyContent: 'flex-end' }}><Text style={{ fontWeight: 'bold' }}>ETA</Text></DataTable.Title>
                     </DataTable.Header>
+                    
                     {destination.map((route) =>
                         <DataTable.Row>
                             <DataTable.Cell>{route.id}. {route.address}</DataTable.Cell>
@@ -32,12 +35,29 @@ const ViewRoute = ({ route }: ViewRouteProps) => {
                     )}
                 </DataTable>
             </ScrollView>
-        </SafeAreaView>
+        </SafeAreaView >
     );
 };
 export default ViewRoute
 
+
 const styles = StyleSheet.create({
+    MainContainer: {
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        alignItems: 'center',
+        justifyContent: 'flex-end',
+    },
+    mapStyle: {
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+    },
     lastUpdated: {
         fontSize: 12,
         marginLeft: 10
@@ -100,4 +120,3 @@ const styles = StyleSheet.create({
         textAlign: 'center', // Center text horizontally
     },
 });
-

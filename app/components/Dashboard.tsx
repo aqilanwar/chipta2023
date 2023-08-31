@@ -30,7 +30,7 @@ const Dashboard = ({ navigation }: DashboardProps) => {
             <Card style={[styles.card, { backgroundColor: '#A90E0E' }]}>
               <Card.Content>
                 <Text style={styles.textHeader}>Log</Text>
-                <Text style={styles.textContent} >5</Text>
+                <Text style={styles.textContent} >10</Text>
               </Card.Content>
             </Card>
 
@@ -72,6 +72,12 @@ const Dashboard = ({ navigation }: DashboardProps) => {
         </View>
         <View style={styles.statisticContainer}>
           <Text variant='titleLarge' style={styles.textTitle}>Statistic</Text>
+          <Text style={styles.description}>Distance travelled for waste collection</Text>
+
+          <Image source={require('../src/chart1.jpg')} style={styles.chart} />
+          <Text style={ styles.description}>Weight of waste collectecd</Text>
+
+          <Image source={require('../src/chart2.jpg')} style={styles.chart} />
         </View>
 
       </ScrollView>
@@ -82,7 +88,18 @@ const Dashboard = ({ navigation }: DashboardProps) => {
 export default Dashboard;
 
 const styles = StyleSheet.create({
-
+  statisticContainer: { 
+    paddingBottom:10
+  }, 
+  description: {
+    margin:10,
+  },
+  chart: {
+    width: '100%',
+    height: 200,
+    marginBottom: 30,
+    // maxWidth: 400, // You can adjust this value based on your design
+  },
   textTitle: {
     fontSize: 25,
     padding:8,

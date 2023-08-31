@@ -1,10 +1,10 @@
 import * as React from 'react';
-import { AppRegistry,SafeAreaView, ScrollView } from 'react-native';
-import { PaperProvider } from 'react-native-paper';
-import { name as appName} from './app.json';
+import {AppRegistry, SafeAreaView, ScrollView} from 'react-native';
+import {PaperProvider} from 'react-native-paper';
+import {name as appName} from './app.json';
 
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import HomeScreen from './components/Home';
 import DashboardScreen from './components/Dashboard';
 import LogScreen from './components/Log';
@@ -20,7 +20,11 @@ function App(): JSX.Element {
     <PaperProvider>
       <NavigationContainer>
         <Stack.Navigator initialRouteName="Home">
-          <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
+          <Stack.Screen
+            name="Home"
+            component={HomeScreen}
+            options={{headerShown: false}}
+          />
           <Stack.Screen name="Dashboard" component={DashboardScreen} />
           <Stack.Screen name="Log" component={LogScreen} />
           <Stack.Screen name="Route" component={RouteScreen} />

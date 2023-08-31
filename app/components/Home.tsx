@@ -9,7 +9,6 @@ const Home = ({navigation}: HomeProps) => {
     <View style={styles.container}>
       <Image source={require('../src/logo.png')} style={styles.logo} />
       <Text style={styles.title}>Smart Waste{'\n'}Management  System</Text>
-      <Text style={styles.content}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin a magna in odio fringilla faucibus quis a ipsum. Vivamus vulputate elit lorem, quis ultricies velit iaculis nec. </Text>
       <Button style={styles.button} mode="contained"  onPress={() => navigation.navigate('Dashboard')}>
         Get Started
       </Button>

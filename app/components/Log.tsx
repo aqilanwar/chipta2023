@@ -101,7 +101,7 @@ const Log = ({ navigation }: LogProps) => {
 
           {items.slice(from, to).map((item) => (
             <DataTable.Row key={item.key}>
-              <DataTable.Cell>{item.name}</DataTable.Cell>
+              <DataTable.Cell>{item.key}.{item.name}</DataTable.Cell>
               <DataTable.Cell>{item.log}</DataTable.Cell>
               <DataTable.Cell>{item.date}</DataTable.Cell>
             </DataTable.Row>
